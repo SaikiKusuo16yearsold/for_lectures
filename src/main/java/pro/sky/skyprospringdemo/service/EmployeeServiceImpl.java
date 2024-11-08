@@ -9,14 +9,14 @@ import java.util.*;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
-    private List<Employee> employees = new ArrayList<>(List.of(
+    public static List<Employee> employees = new ArrayList<>(List.of(
             new Employee("александр", 5, 500),
             new Employee("александрa", 5, 500828),
             new Employee("александр", 5, 66600)));
 
-    public List<Employee> getEmployees() {
-        return employees;
-    }
+//    public List<Employee> getEmployees() {
+//        return employees;
+//    }
 
     @Override
     public Employee addEmployee(String fullname, Integer departmentNumber, Integer salary) {

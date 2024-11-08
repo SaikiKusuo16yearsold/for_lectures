@@ -5,11 +5,12 @@ import pro.sky.skyprospringdemo.model.Employee;
 
 import java.util.*;
 
+import static pro.sky.skyprospringdemo.service.EmployeeServiceImpl.employees;
+
 @Service
 public class DepartmentServiceImpl implements DepartmentService {
     EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
 
-    List<Employee> employees = employeeService.getEmployees();
 
     @Override
     public List<Employee> allEmployersByDepartmentNumber(int departmentNumber) {
