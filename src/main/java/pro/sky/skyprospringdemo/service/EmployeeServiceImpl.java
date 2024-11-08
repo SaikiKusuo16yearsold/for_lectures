@@ -7,7 +7,7 @@ import java.util.*;
 
 
 @Service
-public class HelloServiceImpl implements HelloService {
+public class EmployeeServiceImpl implements EmployeeService {
 
     private List<Employee> employees = new ArrayList<>(List.of(
             new Employee("александр", 5, 500),

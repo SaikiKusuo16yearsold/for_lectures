@@ -4,34 +4,32 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import pro.sky.skyprospringdemo.model.Employee;
-import pro.sky.skyprospringdemo.service.HelloService;
+import pro.sky.skyprospringdemo.service.EmployeeService;
+import pro.sky.skyprospringdemo.service.EmployeeServiceImpl;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 
 @RestController
-public class HelloController {
-    private final HelloService helloService;
+public class EmployeeController {
+    private final EmployeeService employeeService;
 
-    public HelloController(HelloService helloService) {
-        this.helloService = helloService;
+    public EmployeeController(EmployeeServiceImpl employeeService) {
+        this.employeeService = employeeService;
     }
 
 
     @GetMapping(path = "add/employee")
     public Employee addEmployee(@RequestParam String fullname, @RequestParam int departmentNumber,
                                 @RequestParam int salary) {
-        return helloService.addEmployee(fullname, departmentNumber, salary);
+        return employeeService.addEmployee(fullname, departmentNumber, salary);
     }
 
     @GetMapping(path = "amount-expenses")
     public int amountExpenses() {
-        return helloService.amountExpenses();
+        return employeeService.amountExpenses();
     }
 
     @GetMapping(path = "average-salary")
     public int averageSalary() {
-        return helloService.averageSalary();
+        return employeeService.averageSalary();
     }
 }
