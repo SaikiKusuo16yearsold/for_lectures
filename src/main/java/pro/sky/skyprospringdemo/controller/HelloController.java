@@ -34,27 +34,4 @@ public class HelloController {
     public int averageSalary() {
         return helloService.averageSalary();
     }
-
-
-    @GetMapping(path = "departments/min-salary")
-    public Optional<Employee> minimalSalary(@RequestParam int departmentId) {
-        return helloService.findEmployeeWithMinimalSalary(departmentId);
-    }
-
-    @GetMapping(path = "departments/max-salary")
-    public Optional<Employee> maximumSalary(@RequestParam int departmentId) {
-        return helloService.findEmployeeWithMaximalSalary(departmentId);
-    }
-
-    @GetMapping(path = "departments/all-by-id")
-    public List<Employee> allEmployersByDepartmentNumber(@RequestParam int departmentId) {
-        return helloService.allEmployersByDepartmentNumber(departmentId);
-    }
-
-    @GetMapping(path = "departments/all")
-    public Map<Integer, List<Employee>> allEmployers() {
-        return helloService.allEmployers();
-    }
-
-
 }

@@ -9,20 +9,11 @@ import java.util.Optional;
 public interface HelloService {
 
 
-    Optional<Employee> findEmployeeWithMinimalSalary(int departmentNumber);
-
-
-    Optional<Employee> findEmployeeWithMaximalSalary(int departmentId);
-
     Employee addEmployee(String fullname, Integer departmentNumber, Integer salary);
 
 
     int amountExpenses();
 
-
-    List<Employee> allEmployersByDepartmentNumber(int departmentNumber);
-
-    Map<Integer, List<Employee>> allEmployers();
 
     int averageSalary();
 }

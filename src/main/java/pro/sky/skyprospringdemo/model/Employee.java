@@ -1,5 +1,7 @@
 package pro.sky.skyprospringdemo.model;
 
+import java.util.Objects;
+
 public class Employee {
     private String fullname;
     private int departmentNumber;
@@ -45,13 +47,22 @@ public class Employee {
                 getSalary() + " кго id " + idDevelopers;
     }
 
-    public boolean equals(Employee employee) {
-        return this.fullname.equals(employee.getFullname()) && this.departmentNumber == employee.getDepartmentNumber()&&
-                this.salary == employee.getSalary();
+
+    public boolean equals(Object obj) {
+        if (this == obj) return true; // Проверка на идентичность
+        if (obj == null || getClass() != obj.getClass()) return false; // Проверка на null и тип
+        Employee employee = (Employee) obj; // Приведение типа
+        return departmentNumber == employee.departmentNumber &&
+                salary == employee.salary &&
+                Objects.equals(fullname, employee.fullname); // Сравнение полей
     }
 
-    public int hashCod() {
-        return this.hashCode();
+
+    public int hashCode() {
+        return Objects.hash(fullname, departmentNumber, salary); // Уникальный хэш на основе полей
     }
 
 }
+
+
+
