@@ -1,5 +1,8 @@
 package pro.sky.skyprospringdemo.service;
 
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import pro.sky.skyprospringdemo.model.Employee;
 
@@ -29,12 +32,23 @@ public class HelloServiceImpl implements HelloService {
         return employee;
     }
 
-
     @Override
-    public Employee addEmployee(String fullname, Integer departmentNumber, Integer salary) {
-        final Employee employee = new Employee(fullname, departmentNumber, salary);
-        employees.add(employee);
-        return employee;
+    public ResponseEntity<Object> addEmployee(String fullname, Integer departmentNumber, Integer salary) {
+        if (StringUtils.isAlphaSpace(fullname)) {
+            fullname = StringUtils.stripToEmpty(fullname);
+            String answer = "";
+            for (String s : StringUtils.split(fullname)) {
+                s = StringUtils.capitalize(s);
+                answer = answer + s + " ";
+            }
+            fullname = StringUtils.stripToEmpty(answer);
+
+            final Employee employee = new Employee(fullname, departmentNumber, salary);
+            employees.add(employee);
+        } else {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        return null;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package pro.sky.skyprospringdemo.service;
 
+import org.springframework.http.ResponseEntity;
 import pro.sky.skyprospringdemo.model.Employee;
 
 import java.util.List;
@@ -14,7 +15,7 @@ public interface HelloService {
 
     Optional<Employee> findEmployeeWithMaximalSalary(int departmentId);
 
-    Employee addEmployee(String fullname, Integer departmentNumber, Integer salary);
+    ResponseEntity<Object> addEmployee(String fullname, Integer departmentNumber, Integer salary);
 
 
     int amountExpenses();

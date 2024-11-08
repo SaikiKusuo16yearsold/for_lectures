@@ -1,5 +1,6 @@
 package pro.sky.skyprospringdemo.controller;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,8 +21,8 @@ public class HelloController {
 
 
     @GetMapping(path = "add/employee")
-    public Employee addEmployee(@RequestParam String fullname, @RequestParam int departmentNumber,
-                                @RequestParam int salary) {
+    public ResponseEntity<Object> addEmployee(@RequestParam String fullname, @RequestParam int departmentNumber,
+                                              @RequestParam int salary) {
         return helloService.addEmployee(fullname, departmentNumber, salary);
     }
 
