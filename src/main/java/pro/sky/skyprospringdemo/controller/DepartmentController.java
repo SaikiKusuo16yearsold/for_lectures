@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import pro.sky.skyprospringdemo.model.Employee;
+import pro.sky.skyprospringdemo.service.DepartmentService;
 import pro.sky.skyprospringdemo.service.DepartmentServiceImpl;
 
 import java.util.List;
@@ -12,9 +13,9 @@ import java.util.Optional;
 
 @RestController
 public class DepartmentController {
-    private final DepartmentServiceImpl departmentServiceImpl;
+    private final DepartmentService departmentServiceImpl;
 
-    public DepartmentController(DepartmentServiceImpl departmentServiceImpl) {
+    public DepartmentController(DepartmentService departmentServiceImpl) {
         this.departmentServiceImpl = departmentServiceImpl;
     }
 

@@ -12,7 +12,7 @@ import pro.sky.skyprospringdemo.service.EmployeeServiceImpl;
 public class EmployeeController {
     private final EmployeeService employeeService;
 
-    public EmployeeController(EmployeeServiceImpl employeeService) {
+    public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
 
