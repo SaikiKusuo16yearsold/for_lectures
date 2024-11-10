@@ -13,31 +13,30 @@ import java.util.Optional;
 
 @RestController
 public class DepartmentController {
-    private final DepartmentService departmentServiceImpl;
+    private final DepartmentService departmentServiceImp;
 
     public DepartmentController(DepartmentService departmentServiceImpl) {
-        this.departmentServiceImpl = departmentServiceImpl;
+        this.departmentServiceImp = departmentServiceImpl;
     }
 
     @GetMapping(path = "departments/min-salary")
     public Optional<Employee> minimalSalary(@RequestParam int departmentId) {
-        return departmentServiceImpl.findEmployeeWithMinimalSalary(departmentId);
+        return departmentServiceImp.findEmployeeWithMinimalSalary(departmentId);
     }
 
     @GetMapping(path = "departments/max-salary")
     public Optional<Employee> maximumSalary(@RequestParam int departmentId) {
-        return departmentServiceImpl.findEmployeeWithMaximalSalary(departmentId);
+        return departmentServiceImp.findEmployeeWithMaximalSalary(departmentId);
     }
 
     @GetMapping(path = "departments/all-by-id")
     public List<Employee> allEmployersByDepartmentNumber(@RequestParam int departmentId) {
-        return departmentServiceImpl.allEmployersByDepartmentNumber(departmentId);
+        return departmentServiceImp.allEmployersByDepartmentNumber(departmentId);
     }
 
     @GetMapping(path = "departments/all")
     public Map<Integer, List<Employee>> allEmployers() {
-        return departmentServiceImpl.allEmployers();
+        return departmentServiceImp.allEmployers();
     }
-
 
 }

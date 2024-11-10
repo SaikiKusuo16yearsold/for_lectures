@@ -2,6 +2,9 @@ package pro.sky.skyprospringdemo.service;
 
 import pro.sky.skyprospringdemo.model.Employee;
 
+import java.util.Arrays;
+import java.util.List;
+
 public interface EmployeeService {
 
 
@@ -12,4 +15,6 @@ public interface EmployeeService {
 
 
     int averageSalary();
+
+    List<Employee> getEmployees();
 }

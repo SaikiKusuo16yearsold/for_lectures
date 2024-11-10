@@ -9,14 +9,11 @@ import java.util.*;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
-    public static List<Employee> employees = new ArrayList<>(List.of(
+    public List<Employee> employees = new ArrayList<>(List.of(
             new Employee("александр", 5, 500),
             new Employee("александрa", 5, 500828),
             new Employee("александр", 5, 66600)));
 
-//    public List<Employee> getEmployees() {
-//        return employees;
-//    }
 
     @Override
     public Employee addEmployee(String fullname, Integer departmentNumber, Integer salary) {
@@ -36,5 +33,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employees.stream().mapToInt(employee -> employee.getSalary()).sum();
     }
 
-
+    public List<Employee> getEmployees() {
+        return employees;
+    }
 }
