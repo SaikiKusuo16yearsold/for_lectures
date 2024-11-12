@@ -29,11 +29,34 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
+    public Employee removeEmployee(String fullname, Integer departmentNumber, Integer salary) {
+        final Employee employee = new Employee(fullname, departmentNumber, salary);
+        employees.remove(employee);
+        return employee;
+    }
+
+    @Override
+    public Employee findEmployee(String fullname, Integer departmentNumber, Integer salary) {
+        final Employee employee = new Employee(fullname, departmentNumber, salary);
+        for (Employee e : employees) {
+            if (e.equals(employee)) {
+                return employee;
+            }
+        }
+        return null;
+    }
+
+
+    @Override
     public int amountExpenses() {
         return employees.stream().mapToInt(employee -> employee.getSalary()).sum();
     }
 
     public List<Employee> getEmployees() {
         return employees;
+    }
+
+    public void setEmployees(ArrayList<Employee> employees) {
+        this.employees = employees;
     }
 }

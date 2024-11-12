@@ -32,4 +32,16 @@ public class EmployeeController {
     public int averageSalary() {
         return employeeService.averageSalary();
     }
+
+    @GetMapping(path = "remove-employee")
+    public Employee removeEmployee(@RequestParam String fullname, @RequestParam int departmentId, @RequestParam int salary) {
+        return employeeService.removeEmployee(fullname, departmentId, salary);
+    }
+
+    @GetMapping(path = "find-employee")
+    public Employee findEmployee(@RequestParam String fullname, @RequestParam int departmentId, @RequestParam int salary) {
+        return employeeService.findEmployee(fullname, departmentId, salary);
+    }
+
+
 }

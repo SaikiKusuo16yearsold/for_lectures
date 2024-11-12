@@ -14,4 +14,6 @@ public interface DepartmentService {
     Optional<Employee> findEmployeeWithMinimalSalary(int departmentId);
 
     Optional<Employee> findEmployeeWithMaximalSalary(int departmentId);
+
+    int averageSalaryByDepartmentId(int departmentNumberToFilter);
 }

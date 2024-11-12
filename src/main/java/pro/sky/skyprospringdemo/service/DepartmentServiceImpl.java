@@ -10,9 +10,9 @@ import java.util.stream.Collectors;
 
 @Service
 public class DepartmentServiceImpl implements DepartmentService {
-    private final EmployeeService employeeService;
+    private final EmployeeServiceImpl employeeService;
 
-    public DepartmentServiceImpl(EmployeeService employeeServiceImpl) {
+    public DepartmentServiceImpl(EmployeeServiceImpl employeeServiceImpl) {
         this.employeeService = employeeServiceImpl;
     }
 
@@ -45,5 +45,18 @@ public class DepartmentServiceImpl implements DepartmentService {
         return employee;
     }
 
+    @Override
+    public int averageSalaryByDepartmentId(int departmentNumberToFilter) {
+        List<Employee> answer = employeeService.getEmployees().stream() // Создаем stream на основе коллекции
+                .filter(swimmer -> swimmer.getDepartmentNumber() == departmentNumberToFilter) // Отсеиваем элементы
+                .collect(Collectors.toList());
 
+
+        int totalSalary = answer.stream()
+                .mapToInt(Employee::getSalary) // Извлекаем зарплату
+                .sum();
+
+        return totalSalary / answer.size();
+
+    }
 }

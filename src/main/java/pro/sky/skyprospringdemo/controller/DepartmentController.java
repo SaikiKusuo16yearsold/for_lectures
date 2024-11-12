@@ -39,4 +39,8 @@ public class DepartmentController {
         return departmentServiceImp.allEmployers();
     }
 
+    @GetMapping(path = "average-salary-by-departmentID")
+    public int averageSalaryByDepartment(@RequestParam int departmentId) {
+        return departmentServiceImp.averageSalaryByDepartmentId(departmentId);
+    }
 }
