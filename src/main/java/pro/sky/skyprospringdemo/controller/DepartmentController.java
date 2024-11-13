@@ -1,6 +1,7 @@
 package pro.sky.skyprospringdemo.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import pro.sky.skyprospringdemo.model.Employee;
@@ -19,28 +20,28 @@ public class DepartmentController {
         this.departmentServiceImp = departmentServiceImpl;
     }
 
-    @GetMapping(path = "departments/min-salary")
-    public Optional<Employee> minimalSalary(@RequestParam int departmentId) {
-        return departmentServiceImp.findEmployeeWithMinimalSalary(departmentId);
+    @GetMapping(path = "/department/{id}/salary/min")
+    public Optional<Employee> minimalSalary(@PathVariable int id) {
+        return departmentServiceImp.findEmployeeWithMinimalSalary(id);
     }
 
-    @GetMapping(path = "departments/max-salary")
-    public Optional<Employee> maximumSalary(@RequestParam int departmentId) {
-        return departmentServiceImp.findEmployeeWithMaximalSalary(departmentId);
+    @GetMapping(path = "department/{id}/salary/max")
+    public Optional<Employee> maximumSalary(@PathVariable int id) {
+        return departmentServiceImp.findEmployeeWithMaximalSalary(id);
     }
 
-    @GetMapping(path = "departments/all-by-id")
-    public List<Employee> allEmployersByDepartmentNumber(@RequestParam int departmentId) {
-        return departmentServiceImp.allEmployersByDepartmentNumber(departmentId);
+    @GetMapping(path = "department/{id}/employees")
+    public List<Employee> allEmployersByDepartmentNumber(@PathVariable int id) {
+        return departmentServiceImp.allEmployersByDepartmentNumber(id);
     }
 
-    @GetMapping(path = "departments/all")
+    @GetMapping(path = "/department/employees")
     public Map<Integer, List<Employee>> allEmployers() {
         return departmentServiceImp.allEmployers();
     }
 
-    @GetMapping(path = "average-salary-by-departmentID")
-    public int averageSalaryByDepartment(@RequestParam int departmentId) {
-        return departmentServiceImp.averageSalaryByDepartmentId(departmentId);
+    @GetMapping(path = "department/{id}/salary/sum")
+    public int salaryByDepartment(@PathVariable int id) {
+        return departmentServiceImp.salaryByDepartmentId(id);
     }
 }

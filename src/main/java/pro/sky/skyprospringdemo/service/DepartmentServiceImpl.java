@@ -46,7 +46,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     }
 
     @Override
-    public int averageSalaryByDepartmentId(int departmentNumberToFilter) {
+    public int salaryByDepartmentId(int departmentNumberToFilter) {
         List<Employee> answer = employeeService.getEmployees().stream() // Создаем stream на основе коллекции
                 .filter(swimmer -> swimmer.getDepartmentNumber() == departmentNumberToFilter) // Отсеиваем элементы
                 .collect(Collectors.toList());
@@ -56,7 +56,7 @@ public class DepartmentServiceImpl implements DepartmentService {
                 .mapToInt(Employee::getSalary) // Извлекаем зарплату
                 .sum();
 
-        return totalSalary / answer.size();
+        return totalSalary;
 
     }
 }

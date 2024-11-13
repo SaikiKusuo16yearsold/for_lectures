@@ -77,7 +77,7 @@ public class DepartmentServiceImplTest {
         when(employeeService.getEmployees())
                 .thenReturn(EMPLOYEES);
 
-        assertEquals(89, out.averageSalaryByDepartmentId(24));
+        assertEquals(89, out.salaryByDepartmentId(24));
         verify(employeeService, times(1)).getEmployees();
     }
 }
